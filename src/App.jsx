@@ -1,6 +1,8 @@
 
 
 import './App.css'
+import Body from './components/Body'
+import Header from './components/Header'
 
 function App() {
  
@@ -8,7 +10,8 @@ function App() {
   return (
  
       <div>
-        <h1 className="text-amber-950 text-9xl">Hi</h1>
+     <Header/>
+     <Body/>
       </div>
       
   
