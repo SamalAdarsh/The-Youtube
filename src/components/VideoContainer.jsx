@@ -17,7 +17,11 @@ const VideoContainer = () => {
 
     getVideos();
   }, []);
-  if (videos.length === 0) return null;
+  // if (videos?.length === 0) return null;
+
+  if (!videos || videos.length === 0) {
+    return <div>Loading...</div>; 
+  }
   return (
     <div className="flex flex-wrap">
       {videos.map((video) => (

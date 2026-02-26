@@ -6,27 +6,22 @@ import { YOUTUBE_SEARCH_API } from "../utils/constants";
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
-   const getSearchSuggestions = async ()=>{
-  console.log(searchQuery);
-  const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-  const json = await data.json();
-  console.log(json[1]);
-
-  }
+  const getSearchSuggestions = async () => {
+    console.log(searchQuery);
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const json = await data.json();
+    console.log(json[1]);
+  };
 
   useEffect(() => {
     // console.log(searchQuery);
 
-    const timer = setTimeout(()=> getSearchSuggestions(),5000);
+    const timer = setTimeout(() => getSearchSuggestions(), 5000);
 
-    return ()=>{
-
+    return () => {
       clearTimeout(timer);
     };
   }, [searchQuery]);
-
- 
-
 
   const dispatch = useDispatch();
   const toggleHandlerClick = () => {
@@ -48,15 +43,26 @@ const Header = () => {
         />
       </div>
       <div className="flex col-span-8 justify-center ">
-        <input
-          className="w-1/2 border border-gray-400 rounded-l-full"
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button className="py-2 px-5 bg-gray-100 cursor-pointer border border-gray-400 rounded-r-full ">
-          🔍︎
-        </button>
+       <div>
+          <input
+            className="w-1/2 border border-gray-400 rounded-l-full"
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button className="py-2 px-5 bg-gray-100 cursor-pointer border border-gray-400 rounded-r-full ">
+            🔍︎
+          </button>
+       </div>
+        <div>
+          <ul>
+            <li>Adarsh</li>
+            <li>Adarsh</li>
+            <li>Adarsh</li>
+            <li>Adarsh</li>
+            <li>Adarsh</li>
+          </ul>
+        </div>
       </div>
       <div className="flex col-span-2 justify-end">
         <img
